@@ -24,8 +24,8 @@ int main() {
     printf("%d", MaxSubseqSum3(a, len));
 }
 //返回三个数中的最大值
-int Max3(int a, int b, int c) { 
-    return (a > b) ? (a > c) ? a : c : (b > c) ? b : c; 
+int Max3(int a, int b, int c) {
+    return (a > b) ? (a > c) ? a : c : (b > c) ? b : c;
 }
 
 //brute force 暴力求解
@@ -41,7 +41,7 @@ int MaxSubseqSum1(int a[], int len) {
             }
         }
     }
-    return  maxSum; 
+    return  maxSum;
 }
 
 //分治法
@@ -51,7 +51,7 @@ int MaxSubseqSum2(int a[], int start, int end) {
         return a[start] >= 0 ? a[start] : 0;
     }
     //else if (start - end == 1) {
-    //    return Max3(a[start] >= 0 ? a[start]: 0, a[end] >= 0 ? a[end] : 0, 
+    //    return Max3(a[start] >= 0 ? a[start]: 0, a[end] >= 0 ? a[end] : 0,
     //    (a[start] + a[end]) >= 0 ? (a[start] + a[end]) : 0);
     //} 这部分好像可以不用加，终止条件直接是start==end
     int middle = (start + end) / 2;
@@ -59,7 +59,7 @@ int MaxSubseqSum2(int a[], int start, int end) {
     int right = MaxSubseqSum2(a, middle+1, end);
     int overSum = 0;
     int thisSum = 0;
-    
+
     //复杂度为N的找出穿越边界的最大子序列和
     for (int i = middle; i >= start; i--) {
         thisSum += a[i];
