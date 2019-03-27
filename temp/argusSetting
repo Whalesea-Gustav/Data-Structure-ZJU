@@ -1,0 +1,3 @@
+clang z:\Data-Structure-ZJU\isomorphic.c -o z:\Data-Structure-ZJU/isomorphic.exe 
+-g -Wall -static-libgcc -fcolor-diagnostics 
+--target=x86_64-w64-mingw -std=c++17
