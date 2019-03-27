@@ -1,25 +1,51 @@
 {
-    "version": "2.0.0",
-    "command": "g++",
-    "args": [
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "build",
+      "command": "C:\\MinGW-w64\\mingw64\\bin\\gcc.exe",
+      "args": [
+        "-g",
+        "-Wall",
+        "-std=c++14",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "C:\\MinGW-w64\\mingw64\\bin"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "gcc.exe build active file",
+      "command": "C:\\MinGW-w64\\mingw64\\bin\\gcc.exe",
+      "args": [
         "-g",
         "${file}",
         "-o",
-        "${file}.exe"
-    ], // 编译命令参数
-    "problemMatcher": {
-        "owner": "cpp",
-        "fileLocation": [
-            "relative",
-            "${workspaceRoot}"
-        ],
-        "pattern": {
-            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-            "file": 1,
-            "line": 2,
-            "column": 3,
-            "severity": 4,
-            "message": 5
-        }
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "C:\\MinGW-w64\\mingw64\\bin"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "run",
+      "type": "shell",
+      "dependsOn": "build",
+      "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "presentation": {
+        "focus": true
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
     }
+  ]
 }
